@@ -4,6 +4,9 @@ import com.chenjiehan.algorithm.entity.Student;
 import com.chenjiehan.algorithm.utils.ArrayGenerator;
 import com.chenjiehan.algorithm.utils.SortingHelper;
 
+/**
+ * 选择排序 复杂度永远是 O(n^2)
+ */
 public class SelectionSort {
 
     private SelectionSort() {

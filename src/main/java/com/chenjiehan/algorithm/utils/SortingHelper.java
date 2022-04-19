@@ -1,5 +1,6 @@
 package com.chenjiehan.algorithm.utils;
 
+import com.chenjiehan.algorithm.sort.InsertSort;
 import com.chenjiehan.algorithm.sort.SelectionSort;
 
 public class SortingHelper {
@@ -22,6 +23,10 @@ public class SortingHelper {
             SelectionSort.sort(arr);
         if (sortName.equals("SelectionSort2"))
             SelectionSort.sort2(arr);
+        if (sortName.equals("InsertSort"))
+            InsertSort.sort(arr);
+        if (sortName.equals("InsertSort2"))
+            InsertSort.sort2(arr);
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
         if (!SortingHelper.isSorted(arr))
