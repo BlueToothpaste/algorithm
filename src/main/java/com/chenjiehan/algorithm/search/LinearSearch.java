@@ -18,7 +18,7 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         int n = 10000000;
-        Integer[] data = ArrayGenerator.generatorOrderedArray(n);
+        Integer[] data = ArrayGenerator.generateOrderedArray(n);
 
         long startTime = System.nanoTime();
         for (int i = 0; i < 100; i++) {

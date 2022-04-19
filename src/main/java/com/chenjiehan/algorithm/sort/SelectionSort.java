@@ -1,5 +1,9 @@
 package com.chenjiehan.algorithm.sort;
 
+import com.chenjiehan.algorithm.entity.Student;
+import com.chenjiehan.algorithm.utils.ArrayGenerator;
+import com.chenjiehan.algorithm.utils.SortingHelper;
+
 public class SelectionSort {
 
     private SelectionSort() {
@@ -19,6 +23,20 @@ public class SelectionSort {
         }
     }
 
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
+        //arr[i....n)已排序的, arr[0...i) 未排序的 -->循环不变量
+        for (int i = arr.length - 1; i >= 0; i--) {
+            // 选中的最大值所对应的索引
+            int maxIndex = i;
+            for (int j = i; j>= 0; j--) {
+                if (arr[j].compareTo(arr[maxIndex]) > 0)
+                    maxIndex = j;
+            }
+            swap(arr, i, maxIndex);
+        }
+    }
+
+
     private static <E> void swap(E[] arr, int i, int j) {
         E t = arr[i];
         arr[i] = arr[j];
@@ -26,10 +44,21 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = {1, 4, 2, 3, 6, 5};
-        SelectionSort.sort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+//        Integer[] arr = {1, 4, 2, 3, 6, 5};
+        int[] dataSize = {10000};
+        for (int n : dataSize) {
+            Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+//            SortingHelper.sortTest("SelectionSort", arr);
+            SortingHelper.sortTest("SelectionSort2", arr);
         }
+//        Student[] students = {new Student("Alice", 98),
+//                new Student("Bobo", 100),
+//                new Student("Charles", 99)};
+//        SelectionSort.sort(students);
+//        for (Student student : students) {
+//            System.out.println(student);
+//        }
     }
+
+
 }
