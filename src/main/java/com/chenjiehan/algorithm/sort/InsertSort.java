@@ -4,11 +4,19 @@ import com.chenjiehan.algorithm.utils.ArrayGenerator;
 import com.chenjiehan.algorithm.utils.SortingHelper;
 
 /**
- *  相比选择算法，内层for循环有跳出机制（增加了不稳定性-》比选择排序更优秀）
  *
  *  近乎有序的数组 插入排序的时间复杂度是 O(n)
  *
  *  完全倒序的数组 插入排序的时间复杂度是 O(n^2)
+ *
+ *
+ *  总的来说，记住循环不变量 -------> 保证 arr[0...i) 是有序的，arr[i....n)是无序的
+ *
+ *  一直拿最新的i，和arr[0...i)的数据比较，放到合适的位置（跟有序的数组比较）
+ *
+ *  相比选择算法（内层for循环有跳出机制（（跟有序的数组比较），增加了不稳定性-》比选择排序更优秀））
+ *
+ *
  */
 public class InsertSort {
 
@@ -19,6 +27,7 @@ public class InsertSort {
         //循环不变量 ---   a[0...i)有序,a[i...n) 无序
         for (int i = 1; i < arr.length; i++) {
             //将arr[i]插入到合适的位置
+            //一直拿最新的i，和arr[0...i)的数据比较，放到合适的位置（跟有序的数组比较）
             for (int j = i; j - 1 >= 0; j--) {
                 if (arr[j].compareTo(arr[j - 1]) < 0) {
                     swap(arr, j, j - 1);

@@ -6,6 +6,9 @@ import com.chenjiehan.algorithm.utils.SortingHelper;
 
 /**
  * 选择排序 复杂度永远是 O(n^2)
+ * <p>
+ * 总的来说，记住循环不变量 -------> 保证 arr[0...i) 是有序的，arr[i....n)是无序的
+ * 一直找出arr[i....n)内最小的数，放在i的位置 （跟无序的数组比较）
  */
 public class SelectionSort {
 
@@ -31,7 +34,7 @@ public class SelectionSort {
         for (int i = arr.length - 1; i >= 0; i--) {
             // 选中的最大值所对应的索引
             int maxIndex = i;
-            for (int j = i; j>= 0; j--) {
+            for (int j = i; j >= 0; j--) {
                 if (arr[j].compareTo(arr[maxIndex]) > 0)
                     maxIndex = j;
             }
